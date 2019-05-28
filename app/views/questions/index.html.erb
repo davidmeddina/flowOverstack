@@ -1,0 +1,11 @@
+<h1>Questions#index</h1>
+<p>Find me in app/views/questions/index.html.erb</p>
+
+<% @questions.each do |question| %>
+<h3><%= question.title %></h3>
+<p><%= question.content %></p>
+<%= link_to  "Ver pregunta", question_path(question) %>
+<% end %>
+
+
+<%= link_to  "Crear pregunta", new_question_path %>
