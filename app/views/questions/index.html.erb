@@ -1,11 +1,33 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
 
-<% @questions.each do |question| %>
-<h3><%= question.title %></h3>
-<p><%= question.content %></p>
-<%= link_to  "Ver pregunta", question_path(question) %>
-<% end %>
+<div align="center">
+  <h1>Flow OverStack</h1>
+  <table>
+    <th>
+      <tr>
+        <td><strong>Votos</strong></td>
+        <td><strong>Respuestas</strong></td>
+        <td><strong>Titulo</strong></td>
+        <td><strong>Pregunta</strong></td>
+        <td><strong>Acciones</strong></td>
+      </tr>
+    </th>
+    <tbody>
+      <% @questions.each do |question| %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><%= question.title %></td>
+        <td><%= question.content %></td>
+        <td><%= link_to  "Ver", question_path(question) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div> 
 
 
-<%= link_to  "Crear pregunta", new_question_path %>
+
+
+
+<div align="center"><%= link_to  "Crear pregunta", new_question_path %></div>
+<div align="center"><%= link_to  "Autenticarme!", new_user_session_path %></div>

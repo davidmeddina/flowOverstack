@@ -1,11 +1,15 @@
+<h1>Formulario</h1>
+
 <%= form_for @question do |f| %>
   
   <%= f.label :title, "Título" %>
   <%= f.text_field :title %>
-  
+  <br>
   <%= f.label :content, "Contenido" %>
   <%= f.text_area :content %>
-  
+  <br>
   <%= f.submit "Preguntar" %>
 
   <% end %>
+
+  <%= link_to  "Listado de preguntas", questions_path %>

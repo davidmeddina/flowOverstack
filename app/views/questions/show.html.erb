@@ -3,3 +3,7 @@
 
 <h3><%= @question.title %></h3>
 <p><%= @question.content %></p>
+
+<%= link_to  "Lista de preguntas", questions_path %>
+<%= link_to  "Editar", edit_question_path(@question) %>
+<%= link_to  "Eliminar", question_path(@question), method: 'delete' %>
