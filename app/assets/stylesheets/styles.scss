@@ -11,6 +11,14 @@
   font-size: 24px;
   font-weight: bold;
 }
+
+.q-title-s{
+  text-decoration: none;
+  color:#3d3d3d;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .q-title:hover{
   text-decoration: none;
   color: #d35400;
@@ -25,4 +33,14 @@
 .muted{
   color: #95a5a6;
   font-size: 16px;
+}
+
+.i{
+  text-decoration: none;
+  color: #3d3d3d;
+}
+
+.i:hover{
+  text-decoration: none;
+  color: #d35400;
 }

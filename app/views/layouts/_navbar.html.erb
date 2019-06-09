@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light justify-content-around">
+<nav class="navbar navbar-dark bg-dark justify-content-around">
   <%= link_to  "Flow Overstack", root_path, class:"navbar-brand" %>
   
   <div class="right-nav">
@@ -11,8 +11,8 @@
       <% if user_signed_in? %>
       <%= link_to  "Salir", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
       <% else %>
-      <%= link_to  "Ingresar", new_user_session_path, class:"btn btn-outline-dark" %>
-      <%= link_to  "Registrar", new_user_registration_path, class:"btn btn-outline-dark" %>
+      <%= link_to  "Ingresar", new_user_session_path, class:"btn btn-outline-light" %>
+      <%= link_to  "Registrar", new_user_registration_path, class:"btn btn-outline-light" %>
       <% end %>
     </div>
 

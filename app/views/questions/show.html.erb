@@ -1,9 +1,30 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 mt-5 mx-auto">
+      
+      <div class="question">
+        <div class="my-3">
+          <h2 class="q-title-s"><%= @question.title %></h2>
+        </div>
+        <div class="q-body d-flex py-3">
+          <div class="couters mx-2 d-flex align-items-center flex-column">
+            <i class="material-icons md-36">keyboard_arrow_up</i>
+            <span class="counters">1</span>
+          </div>
+          <div class="d-inline mx-3 w-100">
+            <p><%= @question.content %></p>
+            <div class="q-icons float-right">
+              <%= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
+              <%= link_to  'delete', question_path(@question), method: 'delete', data:{confirm: "Eliminar pregunta?"}, class:"material-icons i" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
 
-<h3><%= @question.title %></h3>
-<p><%= @question.content %></p>
+    </div>
+  </div>
+</div>
+
 
 <%= link_to  "Lista de preguntas", questions_path %>
-<%= link_to  "Editar", edit_question_path(@question) %>
-<%= link_to  "Eliminar", question_path(@question), method: 'delete' %>
