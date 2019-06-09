@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-light justify-content-around">
+  <%= link_to  "Flow Overstack", root_path, class:"navbar-brand" %>
+  
+  <div class="right-nav">
+    <form class="form-inline d-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+  
+    <div class="log d-inline">
+      <% if user_signed_in? %>
+      <%= link_to  "Salir", destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+      <% else %>
+      <%= link_to  "Ingresar", new_user_session_path, class:"btn btn-outline-dark" %>
+      <%= link_to  "Registrar", new_user_registration_path, class:"btn btn-outline-dark" %>
+      <% end %>
+    </div>
+
+  </div> 
+</nav>

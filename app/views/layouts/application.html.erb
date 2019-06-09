@@ -10,12 +10,12 @@
   </head>
   
   <body>
+    <%= render  "layouts/navbar" %>
     <%= render  "layouts/flash_messages" %>
-
     <%= yield %>
 
     <script>
-      $('.alert').slideUp(2000)
+      $('.alert').slideUp(5000)
     </script>
   </body>
 </html>

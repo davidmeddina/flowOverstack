@@ -1,29 +1,25 @@
-
-<div align="center">
-  <h1>Flow OverStack</h1>
-  <table>
-    <th>
-      <tr>
-        <td><strong>Votos</strong></td>
-        <td><strong>Respuestas</strong></td>
-        <td><strong>Titulo</strong></td>
-        <td><strong>Pregunta</strong></td>
-        <td><strong>Acciones</strong></td>
-      </tr>
-    </th>
-    <tbody>
-      <% @questions.each do |question| %>
-      <tr>
-        <td></td>
-        <td></td>
-        <td><%= question.title %></td>
-        <td><%= question.content %></td>
-        <td><%= link_to  "Ver", question_path(question) %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div> 
-
-<div align="center"><%= link_to  "Crear pregunta", new_question_path %></div>
-<div align="center"><%= link_to  "Autenticarme!", new_user_session_path %></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 mt-3 mx-auto">
+      <h1>Preguntas</h1>
+      <div><%= link_to  "Crear pregunta", new_question_path, class:"btn btn-dark float-right" %></div>
+      <div class="questions mt-5 d-flex justify-content-center">
+        <table class="table borderless">
+          <tbody>
+            <% @questions.each do |question| %>
+            <tr>
+              <th style="border: none"></th>
+              <td class="text-center"><span class="counters">1</span><span class="d-block">Votos</span></td>
+              <td class="text-center"><span class="counters">1</span><span class="d-block">Respuestas</span></td>
+              <td class="">
+                <%= link_to question.title, question_path(question), class:"q-title d-block" %>
+                <span class="muted">Por <%= question.user.email  %> hace <%= time_ago_in_words(question.created_at) %></span>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
