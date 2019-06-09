@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :questions
+  root 'questions#index' # MODIFICAR
   devise_for :users
+  
+  resources :questions do
+    resources :answers
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'questions#index' # MODIFICAR
 end

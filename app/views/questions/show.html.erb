@@ -21,7 +21,16 @@
         </div>
       </div>
       <hr>
-
+      <div class="ans">
+        <h3 class="q-title-s">Respuestas</h3>
+        <hr>
+        <div class="ans-list">
+          <%= render @question.answers %>
+        </div>
+        <div class="ans-form">
+          <%= render 'answers/form' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,6 @@
+<%= form_for [@question, @answer] do |f| %>
+<div class="form-group">
+  <%= f.text_area :content, placeholder:"Escribe tu respuesta aquí...", class:"form-control", rows: 5 %>
+</div>
+<%= f.submit 'Responder!', class:"btn btn-outline-dark float-right"%>
+<% end %>

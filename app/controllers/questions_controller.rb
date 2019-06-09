@@ -5,10 +5,12 @@ class QuestionsController < ApplicationController
   before_action :set_param, only: %i[show edit update destroy]
 
   def index
-    @questions = Question.all.order(id: :desc)
+    @questions = Question.all.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @answer = Answer.new
+  end
 
   def new
     @question = Question.new
