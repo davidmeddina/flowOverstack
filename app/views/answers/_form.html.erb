@@ -1,6 +1,6 @@
-<%= form_for [@question, @answer] do |f| %>
+<%= form_for [@question, @answer], remote: true do |f| %>
 <div class="form-group">
-  <%= f.text_area :content, placeholder:"Escribe tu respuesta aquí...", class:"form-control", rows: 5 %>
+  <%= f.text_area :content, rows: 5, placeholder:"Escribe tu respuesta aquí...", class:"form-control", id:"ans-box" %>
 </div>
 <%= f.submit 'Responder!', class:"btn btn-outline-dark float-right"%>
 <% end %>

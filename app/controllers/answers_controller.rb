@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  
   def index
     @answers = Answer.all.order(created_at: :desc)
   end
@@ -12,12 +13,24 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         format.html { redirect_to question_path(@question) }
+        format.js #render create.js.erb
         flash[:success] = 'Comentario agregado correctamente'
       else
         format.html { 'questions/show' }
-        flash[:alert] = 'El comentario no se ha agregado correctamente'
+        flash[:error] = 'La respuesta no se ha agregado correctamente'
       end
-      # format.js
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answer.destroy
+
+    respond_to do |format|
+      format.html { redirect_to question_path(@question) }
+      format.js
+      flash[:success] = "Respuesta eliminada correctamente"
     end
   end
 
