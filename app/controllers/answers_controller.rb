@@ -2,6 +2,12 @@
 
 class AnswersController < ApplicationController
   
+  def show
+    # @question = Question.find(params[:question_id])
+    # @answer = @question.find(params[:id])
+    # @comment = @answer.comments.new
+  end
+
   def index
     @answers = Answer.all.order(created_at: :desc)
   end

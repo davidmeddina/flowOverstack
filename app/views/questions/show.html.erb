@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-10 mt-5 mx-auto">
-      
+
       <div class="question">
         <div class="my-3">
           <h2 class="q-title-s"><%= @question.title %></h2>
@@ -20,6 +20,14 @@
           </div>
         </div>
         <hr>
+        <div class="q-com">
+          <div>
+            <%= render  @question.comments %>
+          </div>
+          <div>
+            <%= render  "comments/form", commentable: @question %>
+          </div>
+        </div>
       </div>
       <div class="ans">
         <h3 class="q-title-s">Respuestas</h3>
