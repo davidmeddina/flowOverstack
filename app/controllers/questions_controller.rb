@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
-    @question = Question.find(params[:id])
     @comment = @question.comments.new
   end
 

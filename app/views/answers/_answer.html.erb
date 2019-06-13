@@ -13,6 +13,10 @@
       </div>
     </div>
   </div>
-  <%= render  answer.comments %>
-  <%= render  "comments/form", commentable: @question %>
+  <div id="anscom-list">
+    <%= render  answer.comments %>
+  </div>
+  <div id="anscom-box">
+    <%= render  "comments/form", commentable: answer %>
+  </div>
 </div>
