@@ -7,14 +7,14 @@ class AnswersController < ApplicationController
     @comment = @answer.comments.new
   end
 
-  def index
-    @answers = Answer.all.order(created_at: :desc)
-  end
+  #def index
+   # @answers = Answer.all.order(created_at: :desc)
+  #end
 
   def create
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.build(ans_params)
-
+    @answer = @question.answers.new(ans_params)
+    
     respond_to do |format|
       if @answer.save
         format.html { redirect_to question_path(@question) }
@@ -22,7 +22,7 @@ class AnswersController < ApplicationController
         flash[:success] = 'Comentario agregado correctamente'
       else
         format.html { 'questions/show' }
-        flash[:error] = 'La respuesta no se ha agregado correctamente'
+        flash[:error] = 'La respuesta no se ha agregado correctamente' # ESTO SE GENERA AL REFRESCAR LA PAGINA
       end
     end
   end
@@ -31,6 +31,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
     @answer.destroy
+
 
     respond_to do |format|
       format.html { redirect_to question_path(@question) }

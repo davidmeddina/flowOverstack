@@ -24,7 +24,7 @@
           <div id="quecom-list">
             <%= render  @question.comments %>
           </div>
-          <div>
+          <div class="quecom-form">
             <%= render  "comments/form", commentable: @question %>
           </div>
         </div>
@@ -33,7 +33,7 @@
         <h3 class="q-title-s">Respuestas</h3>
         <hr>
         <div class="ans-list">
-          <%= render @question.answers %>
+          <%= render @question.answers.order(created_at: :asc) %>
         </div>
         <div class="ans-form">
           <%= render 'answers/form' %>

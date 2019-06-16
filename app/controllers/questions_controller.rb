@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = Answer.new
-    @comment = @question.comments.new
+    # @comment = @question.comments.new
   end
 
   def new

@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to question_path(@parent.question_id) } if @comment.commentable_type == "Answer"
-        format.html { redirect_to question_path(@parent) } if @comment.commentable_type == "Question"
+        format.html { redirect_to question_path(@parent.question_id) } if @comment.commentable_type == 'Answer'
+        format.html { redirect_to question_path(@parent) } if @comment.commentable_type == 'Question'
         format.js
       else
         format.html { 'questions/show' }
