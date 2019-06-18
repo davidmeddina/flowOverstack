@@ -12,7 +12,7 @@
             <span class="counters">1</span>
           </div>
           <div class="d-inline mx-3 w-100">
-            <p><%= @question.content %></p>
+            <p><%= markdown(@question.content) %></p>
             <div class="q-icons float-right">
               <%= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
               <%= link_to  'delete', question_path(@question), method: 'delete', data:{confirm: "Eliminar pregunta?"}, class:"material-icons i" %>
@@ -20,8 +20,8 @@
           </div>
         </div>
         <hr>
-        <div class="q-com">
-          <div id="quecom-list">
+        <div class="q-com mb-5">
+          <div id="quecom-list" class="w-75 ml-auto">
             <%= render  @question.comments %>
           </div>
           <div class="quecom-form">
@@ -29,13 +29,13 @@
           </div>
         </div>
       </div>
-      <div class="ans">
-        <h3 class="q-title-s">Respuestas</h3>
+      <div class="ans mt-2">
+        <h3 class="q-title-s mt-2">Respuestas</h3>
         <hr>
         <div class="ans-list">
           <%= render @question.answers.order(created_at: :asc) %>
         </div>
-        <div class="ans-form">
+        <div class="ans-form pt-5">
           <%= render 'answers/form' %>
         </div>
       </div>

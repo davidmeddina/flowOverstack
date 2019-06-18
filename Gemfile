@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails'
+gem 'redcarpet', '~> 3.4'
+gem 'coderay', '~> 1.1', '>= 1.1.2'
 # ******************
 
 # Use ActiveStorage variant
