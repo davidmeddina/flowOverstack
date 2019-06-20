@@ -32,7 +32,6 @@ class AnswersController < ApplicationController
     @answer = @question.answers.find(params[:id])
     @answer.destroy
 
-
     respond_to do |format|
       format.html { redirect_to question_path(@question) }
       format.js
