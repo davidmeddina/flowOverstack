@@ -7,12 +7,28 @@
           <h2 class="q-title-s"><%= @question.title %></h2>
         </div>
         <div class="q-body d-flex py-3">
-          <div class="couters mx-2 d-flex align-items-center flex-column">
+          <div class="">
+
+            <% if @question.voted_by? current_user %>
+              <%= link_to question_vote_path(@question), method: :delete, class:"counters mx-2 d-flex align-items-center flex-column my-2" do %>
+
+              <span class="counters"><%= @question.votes.count %></span>
+              <i class="material-icons md-36">keyboard_arrow_down</i>
+
+              <% end %>
+            <% else %>
+            <%= link_to question_vote_path(@question), method: :post, class:"counters mx-2 d-flex align-items-center flex-column" do %>
+
             <i class="material-icons md-36">keyboard_arrow_up</i>
-            <span class="counters">1</span>
+            <span class="counters"><%= @question.votes.count %></span>
+
+              <% end %>
+            <% end %>
+
+
           </div>
           <div class="d-inline mx-3 w-100">
-            <p><%= markdown(@question.content) %></p>
+            <p class="m-0"><%= markdown(@question.content) %></p>
             <div class="q-icons float-right">
               <%= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
               <%= link_to  'delete', question_path(@question), method: 'delete', data:{confirm: "Eliminar pregunta?"}, class:"material-icons i" %>

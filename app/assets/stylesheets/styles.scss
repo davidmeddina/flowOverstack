@@ -3,6 +3,11 @@
 .counters{
   font-size: 24px;
   font-weight: 400;
+  color:#3d3d3d;
+  &:hover{
+    text-decoration: none;
+    color: #FF5733;
+  }
 }
 
 .q-title{
