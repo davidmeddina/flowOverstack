@@ -1,5 +1,19 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: answers
+#
+#  id          :integer          not null, primary key
+#  question_id :integer
+#  user_id     :integer
+#  content     :text
+#  rating      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+
 require 'test_helper'
 
 class AnswerTest < ActiveSupport::TestCase

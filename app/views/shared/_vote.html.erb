@@ -1,0 +1,15 @@
+<% if var.voted_by? current_user %>
+  <%= link_to path, method: :delete, class:"counters mx-2 d-flex align-items-center flex-column my-2" do %>
+
+    <span class="counters"><%= var.votes.count %></span>
+    <i class="material-icons md-36">keyboard_arrow_down</i>
+
+  <% end %>
+<% else %>
+  <%= link_to path, method: :post, class:"counters mx-2 d-flex align-items-center flex-column" do %>
+
+    <i class="material-icons md-36">keyboard_arrow_up</i>
+    <span class="counters"><%= var.votes.count %></span>
+
+<% end %>
+<% end %>

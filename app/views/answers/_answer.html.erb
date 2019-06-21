@@ -1,9 +1,9 @@
-
 <div id="answer-<%= answer.id %>" class="mt-5">
   <div class="d-flex py-3">
-    <div class="couters mx-2 d-flex align-items-center flex-column">
-      <i class="material-icons md-36">keyboard_arrow_up</i>
-      <span class="counters">1</span>
+    <div>
+      
+      <%= render partial: 'shared/vote', locals:{var: answer, path: answer_vote_path(answer)} %>
+
     </div>
     <div class="d-inline mx-3 w-100">
       <p class="a-content"><%= markdown(answer.content) %></p>
