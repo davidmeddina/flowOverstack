@@ -2,10 +2,16 @@
   <%= link_to  "Flow Overstack", root_path, class:"navbar-brand" %>
   
   <div class="right-nav">
-    <form class="form-inline d-inline">
+    
+    <%= form_tag questions_path, method: :get, class:"form-inline d-inline" do %>
+      <%= text_field_tag :search, nil, class:"form-control mr-sm-2", placeholder:"Buscar" %>
+      <%= submit_tag "Buscar", class:"btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+
+    <!-- <form class="form-inline d-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+    </form> -->
   
     <div class="log d-inline">
       <% if user_signed_in? %>

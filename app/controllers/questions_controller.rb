@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   before_action :set_param, only: %i[show edit update destroy]
 
   def index
-    @questions = Question.all.order(created_at: :desc)
+    @questions = Question.search(params[:search]).order(created_at: :desc)
   end
 
   def show
