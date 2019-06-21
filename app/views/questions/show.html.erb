@@ -12,10 +12,12 @@
           </div>
           <div class="d-inline mx-3 w-100">
             <p class="m-0"><%= markdown(@question.content) %></p>
-            <div class="q-icons float-right">
-              <%= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
-              <%= link_to  'delete', question_path(@question), method: 'delete', data:{confirm: "Eliminar pregunta?"}, class:"material-icons i" %>
-            </div>
+            <% if author(@question) %>
+              <div class="q-icons float-right">
+                <%= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
+                <%= link_to  'delete', question_path(@question), method: 'delete', data:{confirm: "Eliminar pregunta?"}, class:"material-icons i" %>
+              </div>
+            <% end %>
           </div>
         </div>
         <hr>
@@ -23,9 +25,11 @@
           <div id="quecom-list" class="w-75 ml-auto">
             <%= render  @question.comments %>
           </div>
-          <div class="quecom-form">
-            <%= render  "comments/form", commentable: @question %>
-          </div>
+          <% if user_signed_in? %>
+            <div class="quecom-form">
+              <%= render  "comments/form", commentable: @question %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="ans mt-2">
@@ -34,13 +38,12 @@
         <div class="ans-list">
           <%= render @question.answers.order(created_at: :asc) %>
         </div>
-        <div class="ans-form pt-5">
-          <%= render 'answers/form' %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="ans-form pt-5">
+            <%= render 'answers/form' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
-<%= link_to  "Lista de preguntas", questions_path %>

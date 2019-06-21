@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  
   def show
     @question = Question.find(params[:question_id])
     @answer = @question.find(params[:id])
@@ -19,7 +20,7 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to question_path(@question) }
         format.js # render create.js.erb
-        flash[:success] = 'Comentario agregado correctamente'
+        flash[:success] = 'Respuesta agregado correctamente'
       else
         format.html { 'questions/show' }
         flash[:error] = 'La respuesta no se ha agregado correctamente' # ESTO SE GENERA AL REFRESCAR LA PAGINA

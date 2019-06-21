@@ -1,22 +1,24 @@
 <div id="answer-<%= answer.id %>" class="mt-5">
   <div class="d-flex py-3">
     <div>
-      
       <%= render partial: 'shared/vote', locals:{var: answer, path: answer_vote_path(answer)} %>
-
     </div>
     <div class="d-inline mx-3 w-100">
       <p class="a-content"><%= markdown(answer.content) %></p>
-      <div class="q-icons float-right">
-        <%#= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
-        <%= link_to  'delete', [@question, answer], remote: true, method: 'delete', data:{confirm: "Eliminar respuesta?"}, class:"material-icons i" %>
-      </div>
+      <% if author(answer) %>
+        <div class="q-icons float-right">
+          <%#= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
+          <%= link_to  'delete', [@question, answer], remote: true, method: 'delete', data:{confirm: "Eliminar respuesta?"}, class:"material-icons i" %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div id="anscom-list">
     <%= render  answer.comments %>
   </div>
-  <div id="anscom-box" class="pb-2">
-    <%= render  "comments/form", commentable: answer %>
-  </div>
+  <% if user_signed_in? %>
+    <div id="anscom-box" class="pb-2">
+      <%= render  "comments/form", commentable: answer %>
+    </div>
+  <% end %>
 </div>

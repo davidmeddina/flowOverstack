@@ -26,12 +26,16 @@ module ApplicationHelper
     markdown_to_plain_text.render(text).html_safe
   end
 
+  def author(entry)
+    user_signed_in? && current_user.id == entry.user_id
+  end
+
   def flash_msg(key)
     case key
-    when 'notice' then 'alert alert-dismissible alert-info'
-    when 'success' then 'alert alert-dismissible alert-success'
-    when 'error' then 'alert alert-dismissible alert-danger'
-    when 'alert' then 'alert alert-dismissible alert-warning'
+      when 'notice' then 'alert alert-dismissible alert-info'
+      when 'success' then 'alert alert-dismissible alert-success'
+      when 'error' then 'alert alert-dismissible alert-danger'
+      when 'alert' then 'alert alert-dismissible alert-warning'
     end
   end
 end

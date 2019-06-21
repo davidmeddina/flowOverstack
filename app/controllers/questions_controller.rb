@@ -3,6 +3,7 @@
 class QuestionsController < ApplicationController
   # before_action :authentica_user!, except: %i[index show]
   before_action :set_param, only: %i[show edit update destroy]
+  before_action :private_access, except: %i[index show]
 
   def index
     @questions = Question.search(params[:search]).order(created_at: :desc)
@@ -52,5 +53,9 @@ class QuestionsController < ApplicationController
 
   def questions_params
     params.require(:question).permit(:title, :content, :rating, :user_id)
+  end
+
+  def private_access
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
