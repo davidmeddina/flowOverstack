@@ -7,24 +7,8 @@
           <h2 class="q-title-s"><%= @question.title %></h2>
         </div>
         <div class="q-body d-flex py-3">
-          <div class="">
-
-            <% if @question.voted_by? current_user %>
-              <%= link_to question_vote_path(@question), method: :delete, class:"counters mx-2 d-flex align-items-center flex-column my-2" do %>
-
-              <span class="counters"><%= @question.votes.count %></span>
-              <i class="material-icons md-36">keyboard_arrow_down</i>
-
-              <% end %>
-            <% else %>
-            <%= link_to question_vote_path(@question), method: :post, class:"counters mx-2 d-flex align-items-center flex-column" do %>
-
-            <i class="material-icons md-36">keyboard_arrow_up</i>
-            <span class="counters"><%= @question.votes.count %></span>
-
-              <% end %>
-            <% end %>
-
+          <div>
+            <%= render partial: 'shared/vote', locals:{var: @question, path: question_vote_path(@question)} %>
           </div>
           <div class="d-inline mx-3 w-100">
             <p class="m-0"><%= markdown(@question.content) %></p>

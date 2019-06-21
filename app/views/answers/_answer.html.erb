@@ -2,21 +2,7 @@
   <div class="d-flex py-3">
     <div>
       
-      <% if answer.voted_by? current_user %>
-        <%= link_to answer_vote_path(answer), method: :delete, class:"counters mx-2 d-flex align-items-center flex-column my-2" do %>
-
-          <span class="counters"><%= answer.votes.count %></span>
-          <i class="material-icons md-36">keyboard_arrow_down</i>
-
-        <% end %>
-      <% else %>
-        <%= link_to answer_vote_path(answer), method: :post, class:"counters mx-2 d-flex align-items-center flex-column" do %>
-
-          <i class="material-icons md-36">keyboard_arrow_up</i>
-          <span class="counters"><%= answer.votes.count %></span>
-
-        <% end %>
-      <% end %>
+      <%= render partial: 'shared/vote', locals:{var: answer, path: answer_vote_path(answer)} %>
 
     </div>
     <div class="d-inline mx-3 w-100">
