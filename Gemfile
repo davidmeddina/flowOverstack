@@ -36,6 +36,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
+gem 'omniauth-github'
 # ******************
 
 # Use ActiveStorage variant
