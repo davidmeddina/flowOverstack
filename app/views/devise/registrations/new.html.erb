@@ -25,8 +25,8 @@
         </div>
         <% end %>
 
-        <hr class="w-75 mx-auto">
-        <div class="w-75 mx-auto text-center">
+        <!-- <hr class="w-75 mx-auto"> -->
+        <div class="w-75 mx-auto text-center mt-4">
           <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
           <%= link_to "Ingresar con #{OmniAuth::Utils.camelize(provider)}", 

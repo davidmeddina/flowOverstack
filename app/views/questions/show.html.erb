@@ -20,7 +20,7 @@
             <% end %>
           </div>
         </div>
-        <hr>
+        <!-- <hr> -->
         <div class="q-com mb-5">
           <div id="quecom-list" class="w-75 ml-auto">
             <%= render  @question.comments %>
@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="ans mt-2">
-        <h3 class="q-title-s mt-2">Respuestas</h3>
-        <hr>
+        <h3 class="q-title-s mt-2"><span class="plu-ans"><%=pluralize(@question.answers.count, 'Respuesta', plural: 'Respuestas') %></span></h3>
+        <!-- <hr> -->
         <div class="ans-list">
           <%= render @question.answers.order(created_at: :asc) %>
         </div>
