@@ -39,9 +39,10 @@
           <%= render @question.answers.order(created_at: :asc) %>
         </div>
         <% if user_signed_in? %>
-          <div class="ans-form pt-5">
+          <div class="ans-form py-5">
             <%= render 'answers/form' %>
           </div>
+          <div class="py-4"></div>
         <% end %>
       </div>
     </div>

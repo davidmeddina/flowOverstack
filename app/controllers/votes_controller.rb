@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_action :parent, only: %i[create destroy]
 
   def create
     @parent = parent
