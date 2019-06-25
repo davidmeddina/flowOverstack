@@ -9,10 +9,9 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to question_path(@parent.question_id) } if @comment.commentable_type == 'Answer'
         format.html { redirect_to question_path(@parent) } if @comment.commentable_type == 'Question'
-        format.js
+        format.js { flash.now[:success] = 'Comentario agregado correctamente' }
       else
         format.html { 'questions/show' }
-        flash[:error] = 'El comentario no se ha agregado correctamente'
       end
     end
     # if @comment.commentable_type == "Answer"

@@ -19,11 +19,9 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         format.html { redirect_to question_path(@question) }
-        format.js # render create.js.erb
-        flash[:success] = 'Respuesta agregado correctamente'
+        format.js { flash.now[:success] = 'La respuesta se ha agregado correctamente' }
       else
         format.html { 'questions/show' }
-        flash[:error] = 'La respuesta no se ha agregado correctamente' # ESTO SE GENERA AL REFRESCAR LA PAGINA
       end
     end
   end
@@ -35,8 +33,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to question_path(@question) }
-      format.js
-      flash[:success] = 'Respuesta eliminada correctamente'
+      format.js { flash.now[:success] = 'Respuesta eliminada correctamente' }
     end
   end
 

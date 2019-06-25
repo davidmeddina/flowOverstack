@@ -12,11 +12,15 @@
   
   <body>
     <%= render  "layouts/navbar" %>
-    <%= render  "layouts/flash_messages" %>
+    <div class="flash_wrapper">
+      <%= render  "layouts/flash_messages" %>
+    </div>
+
     <%= yield %>
     <%= render  "layouts/footer" %>
+    
     <script>
-      $('.alert').slideUp(5000)
+      $('.alert').fadeOut(4000)
     </script>
   </body>
 </html>

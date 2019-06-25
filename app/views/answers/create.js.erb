@@ -1,3 +1,6 @@
 $("<%= escape_javascript(render(@answer)) %>").appendTo('.ans-list');
 $('#ans-box').val('');
 $('.plu-ans').html('<%=pluralize(@question.answers.count, "Respuesta", plural: "Respuestas")%>')
+
+$('.flash_wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");
+$('.alert').fadeOut(4000)
