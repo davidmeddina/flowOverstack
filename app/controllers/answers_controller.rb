@@ -15,12 +15,12 @@ class AnswersController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @answer = @question.answers.new(ans_params)
-    
     respond_to do |format|
       if @answer.save
         format.html { redirect_to question_path(@question) }
         format.js { flash.now[:success] = 'La respuesta se ha agregado correctamente' }
       else
+        format.js
         format.html { 'questions/show' }
       end
     end

@@ -1,11 +1,15 @@
+<% if @comment.errors.any? %>
+$("<%= escape_javascript(render 'shared/error', variable: @comment) %>").modal();
+  <% else %>
 
-<% if @comment.commentable_type == 'Question' %>
-  $("<%= escape_javascript(render(@comment)) %>").appendTo('#quecom-list');
-  $('#com-box').val('');
-<% elsif @comment.commentable_type == 'Answer' %>
-  $("<%= escape_javascript(render(@comment)) %>").appendTo('#answer-<%= @comment.commentable_id %> #anscom-list');
-  $('#answer-<%= @comment.commentable_id %> #com-box').val('');
+  <% if @comment.commentable_type == 'Question' %>
+    $("<%= escape_javascript(render(@comment)) %>").appendTo('#quecom-list');
+    $('#com-box').val('');
+  <% elsif @comment.commentable_type == 'Answer' %>
+    $("<%= escape_javascript(render(@comment)) %>").appendTo('#answer-<%= @comment.commentable_id %> #anscom-list');
+    $('#answer-<%= @comment.commentable_id %> #com-box').val('');
+  <% end %>
+
+    $('.flash_wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");
+    $('.alert').fadeOut(4000)
 <% end %>
-
-$('.flash_wrapper').html("<%= escape_javascript(render 'layouts/flash_messages') %>");
-$('.alert').fadeOut(4000)

@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
         format.js { flash.now[:success] = 'Comentario agregado correctamente' }
       else
         format.html { 'questions/show' }
+        format.js
       end
     end
     # if @comment.commentable_type == "Answer"
