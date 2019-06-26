@@ -21,22 +21,30 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(questions_params)
     @question.user = current_user
-    if @question.save
-      flash[:success] = 'Pregunta creada correctamente'
-      redirect_to questions_path
-    else
-      render :new
+
+    respond_to do |format|
+      if @question.save
+        flash[:success] = 'Pregunta creada correctamente'
+        format.html { redirect_to questions_path }
+      else
+        format.html { render :new }
+        format.js { render :error }
+      end
     end
   end
 
   def edit; end
 
   def update
-    if @question.update(questions_params)
-      flash[:success] = 'Pregunta actualizada correctamente'
-      redirect_to question_path(@question)
-    else
-      render :new
+
+    respond_to do |format|
+      if @question.update(questions_params)
+        flash[:success] = 'Pregunta actualizada correctamente'
+        format.html { redirect_to question_path(@question) }
+      else
+        format.html { render :new }
+        format.js { render :error }
+      end
     end
   end
 

@@ -4,7 +4,7 @@
 
       <%= render  "shared/errors", variable: @question %>
 
-      <%= form_for @question do |f| %>
+      <%= form_for @question, remote: true do |f| %>
       <div class="form-group">
         <%= f.label :title, "Título"%>
         <%= f.text_field :title, class:"form-control", placeholder:"Ingresa acá tu pregunta" %>
