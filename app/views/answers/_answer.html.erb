@@ -4,6 +4,7 @@
       <%= render partial: 'shared/vote', locals:{var: answer, path: answer_vote_path(answer)} %>
     </div>
     <div class="d-inline mx-3 w-100">
+      <span class="text-muted a-font"><%= username(answer.user.email) %> respondió:</span>
       <p class="a-content"><%= markdown(answer.content) %></p>
       <% if author(answer) %>
         <div class="q-icons float-right">

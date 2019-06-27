@@ -2,8 +2,7 @@
 <div id="com-<%= comment.id %>">
   <div class="q-body d-flex">
     <div class="d-inline mx-3 w-100">
-      <p class="c-content float-right c-font"><%= comment.content %></p>
-      
+      <p class="c-content float-right c-font"><span class="text-muted a-font"><%= username(comment.user.email) %>: </span><%= comment.content %></p>
       <!-- <div class="q-icons float-right">
         <%#= link_to  'edit', edit_question_path(@question), class:"material-icons i" %>
         <%#= link_to  'delete', [@question, answer], remote: true, method: 'delete', data:{confirm: "Eliminar respuesta?"}, class:"material-icons i" %>

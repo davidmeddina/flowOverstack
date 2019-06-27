@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-10 mt-5 mx-auto">
 
-      <%= render  "shared/errors", variable: @question %>
+      <%= render  "shared/error", variable: @question %>
 
       <%= form_for @question, remote: true do |f| %>
       <div class="form-group">

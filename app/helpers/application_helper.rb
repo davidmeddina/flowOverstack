@@ -30,6 +30,10 @@ module ApplicationHelper
     user_signed_in? && current_user.id == entry.user_id
   end
 
+  def username(email)
+    email.split('@')[0]
+  end
+
   def flash_msg(key)
     case key
       when 'notice' then 'alert alert-dismissible alert-info'
