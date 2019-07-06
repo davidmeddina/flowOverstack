@@ -1,7 +1,9 @@
 
 <%= form_for [@question, @answer], remote: true do |f| %>
 
-<%= render  "shared/error", variable: @answer %>
+<%#= render  "shared/error ", variable: @answer %>
+<%= render partial: 'shared/error', locals:{variable: @answer} %>
+
 
 <div class="form-group">
   <%= f.text_area :content, rows: 5, placeholder:"Escribe tu respuesta aquí...", class:"form-control", id:"ans-box" %>

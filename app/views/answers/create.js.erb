@@ -1,6 +1,5 @@
 <% if @answer.errors.any? %>
   $("<%= escape_javascript(render 'shared/error', variable: @answer) %>").modal();
-  console.log('Hola')
 <% else %>
   $("<%= escape_javascript(render(@answer)) %>").appendTo('.ans-list');
   $('#ans-box').val('');
