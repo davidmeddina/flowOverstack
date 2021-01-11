@@ -34,7 +34,7 @@ gem 'annotate'
 gem 'bootstrap'
 gem 'devise'
 gem 'jquery-rails'
-gem 'redcarpet', '~> 3.4'
+gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-github'
 # ******************
